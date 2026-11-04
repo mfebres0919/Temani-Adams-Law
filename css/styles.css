@@ -1,0 +1,2181 @@
+/* =========================================================
+   Temani Adams Law — homepage sections
+   ========================================================= */
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    --marquee-h: 4.25rem;
+    padding-top: calc(var(--header-height) + 2.5rem);
+    background:
+        radial-gradient(60rem 40rem at 50% 30%, rgba(244, 179, 204, 0.14), transparent 60%),
+        radial-gradient(40rem 30rem at 100% 100%, rgba(227, 213, 178, 0.08), transparent 70%),
+        var(--ink-900);
+    color: var(--text-on-dark);
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-scales {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    width: min(64rem, 150vw);
+    max-width: none;
+    height: auto;
+    opacity: 0.045;
+    transform: translate(-50%, -50%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-areas:
+        "copy"
+        "portrait"
+        "form";
+}
+
+/* Copy */
+.hero-copy {
+    grid-area: copy;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    margin-top: 1.25rem;
+    font-family: var(--font-display);
+    font-size: clamp(2.625rem, 11vw, 3.5rem);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.01em;
+    color: var(--white);
+}
+
+.hero-line {
+    display: block;
+}
+
+.hero-title em {
+    font-weight: 500;
+    color: var(--pink-500);
+}
+
+/* Draw after the headline has risen into place */
+.hero-title .text-underline::after {
+    transition-delay: 1.05s;
+}
+
+.hero-lede {
+    max-width: 34rem;
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-on-dark-muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.hero-proof {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line-on-dark);
+    font-size: 0.875rem;
+    color: var(--text-on-dark-muted);
+}
+
+.hero-proof-google {
+    width: 1.375rem;
+    height: 1.375rem;
+}
+
+.hero-stars {
+    display: flex;
+    gap: 0.125rem;
+}
+
+.hero-stars svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--champagne-500);
+}
+
+.hero-proof strong {
+    font-weight: 600;
+    color: var(--text-on-dark);
+}
+
+/* Portrait */
+.hero-portrait {
+    grid-area: portrait;
+    position: relative;
+    justify-self: center;
+    width: min(100%, 21rem);
+    margin-top: 2.5rem;
+}
+
+/* Spotlight disc and a fine champagne ring behind her */
+.hero-portrait::before,
+.hero-portrait::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.hero-portrait::before {
+    top: 6%;
+    width: 112%;
+    background: radial-gradient(circle at 50% 40%, rgba(244, 179, 204, 0.32), rgba(244, 179, 204, 0.06) 55%, transparent 70%);
+}
+
+.hero-portrait::after {
+    top: 2%;
+    width: 96%;
+    border: 1px solid rgba(227, 213, 178, 0.35);
+}
+
+.hero-photo {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+}
+
+.hero-badge {
+    position: absolute;
+    left: -0.5rem;
+    bottom: 22%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1rem 0.625rem 0.625rem;
+    border: 1px solid var(--line-on-dark);
+    border-radius: 999px;
+    background: rgba(23, 19, 26, 0.78);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--text-on-dark-muted);
+    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.6);
+}
+
+.hero-badge strong {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.hero-badge-icon {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--pink-500);
+}
+
+.hero-badge-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: var(--ink-900);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ---------- Consultation form ---------- */
+.hero-form-wrap {
+    grid-area: form;
+    position: relative;
+    z-index: 3;
+    margin-top: -4.5rem;
+    padding-bottom: calc(var(--marquee-h) + 2.5rem);
+    scroll-margin-top: calc(var(--header-height) + 1rem);
+}
+
+.consult-form {
+    container-type: inline-size;
+    position: relative;
+    padding: 1.75rem 1.25rem 1.5rem;
+    border-radius: 1.25rem;
+    background: var(--ivory);
+    color: var(--text);
+    box-shadow:
+        0 2rem 4rem -1.5rem rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(227, 213, 178, 0.5);
+}
+
+/* Pink-to-champagne hairline across the top of the card */
+.consult-form::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+    right: 1.5rem;
+    height: 3px;
+    border-radius: 0 0 3px 3px;
+    background: var(--pink-500);
+}
+
+.consult-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pink-700);
+}
+
+.consult-eyebrow svg {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.consult-title {
+    margin-top: 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--ink-900);
+}
+
+.consult-title em {
+    font-weight: 500;
+    color: var(--pink-700);
+}
+
+.consult-intro {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+.consult-fields {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.125rem;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--ink-800);
+}
+
+.field-optional {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    min-height: 2.875rem;
+    padding: 0.6875rem 0.875rem;
+    border: 1px solid #E4DAE0;
+    border-radius: 0.625rem;
+    background: var(--white);
+    font-size: 1rem;
+    line-height: 1.4;
+    color: var(--ink-900);
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.field textarea {
+    min-height: 4.5rem;
+    resize: vertical;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+    border-color: #CDBFC8;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--pink-600);
+    box-shadow: 0 0 0 4px var(--pink-100);
+}
+
+.field [aria-invalid="true"] {
+    border-color: var(--pink-700);
+}
+
+.select-wrap {
+    position: relative;
+}
+
+.select-wrap select {
+    padding-right: 2.5rem;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.select-wrap select:invalid {
+    color: var(--text-muted);
+}
+
+.select-wrap svg {
+    position: absolute;
+    top: 50%;
+    right: 0.875rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: var(--pink-700);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.consult-submit {
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 1.25rem;
+}
+
+.consult-error {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--pink-700);
+}
+
+.consult-error:empty {
+    display: none;
+}
+
+.consult-fine {
+    margin-top: 0.875rem;
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+.consult-fine a {
+    font-weight: 600;
+    color: var(--ink-900);
+    white-space: nowrap;
+    border-bottom: 1px solid var(--pink-500);
+}
+
+/* Thank-you state replaces the form contents */
+.consult-success {
+    display: grid;
+    justify-items: center;
+    padding: 2.5rem 0.5rem;
+    text-align: center;
+}
+
+.consult-success[hidden] {
+    display: none;
+}
+
+.consult-success:focus {
+    outline: none;
+}
+
+.consult-success-icon {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background: var(--pink-500);
+}
+
+.consult-success-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: var(--ink-900);
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.consult-form.is-sent > :not(.consult-success) {
+    display: none;
+}
+
+@container (min-width: 18rem) {
+    .consult-fields {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .field-full {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ---------- Marquee ----------
+   A frosted-glass band laid over the bottom of the hero, so her
+   portrait shows through softly blurred behind the practice areas. */
+.hero-marquee {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    height: var(--marquee-h);
+    margin-top: calc(-1 * var(--marquee-h));
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(244, 239, 242, 0.12);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
+    color: var(--white);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 60s linear infinite;
+}
+
+.hero-marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-list {
+    display: flex;
+    flex: none;
+    align-items: center;
+    gap: 3rem;
+    padding-right: 3rem;
+}
+
+.marquee-list li {
+    display: flex;
+    flex: none;
+    align-items: center;
+}
+
+/* White award logos; each list holds the set twice so the loop
+   never shows a gap, even on very wide screens */
+.badge-logo {
+    width: auto;
+    height: 2.5rem;
+    opacity: 0.92;
+    filter: drop-shadow(0 1px 0.5rem rgba(14, 11, 16, 0.35));
+}
+
+.badge-logo-wide {
+    height: 2.125rem;
+}
+
+.badge-logo-wordmark {
+    height: 1.625rem;
+}
+
+@media (min-width: 64rem) {
+    .marquee-list {
+        gap: 4rem;
+        padding-right: 4rem;
+    }
+
+    .badge-logo {
+        height: 3rem;
+    }
+
+    .badge-logo-wide {
+        height: 2.5rem;
+    }
+
+    .badge-logo-wordmark {
+        height: 1.875rem;
+    }
+}
+
+@keyframes marquee {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ---------- Hero entrance ---------- */
+.hero-copy > *,
+.hero-portrait,
+.hero-form-wrap {
+    animation: hero-rise 1.1s var(--ease-out) both;
+}
+
+.hero-copy > :nth-child(2) { animation-delay: 0.1s; }
+.hero-copy > :nth-child(3) { animation-delay: 0.2s; }
+.hero-copy > :nth-child(4) { animation-delay: 0.3s; }
+.hero-copy > :nth-child(5) { animation-delay: 0.4s; }
+.hero-portrait { animation-delay: 0.25s; }
+.hero-form-wrap { animation-delay: 0.45s; }
+
+@keyframes hero-rise {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 1.5rem, 0);
+    }
+}
+
+@media (min-width: 30rem) {
+    .consult-form {
+        padding: 2rem 1.75rem 1.75rem;
+    }
+}
+
+/* Tablet and small laptop: copy and portrait on the left, form on the right */
+@media (min-width: 48rem) {
+    .hero {
+        padding-top: calc(var(--header-height) + 3.5rem);
+    }
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 21.5rem);
+        grid-template-areas:
+            "copy form"
+            "portrait form";
+        column-gap: 3rem;
+        align-items: start;
+    }
+
+    .hero-title {
+        font-size: clamp(2.75rem, 5.4vw, 3.75rem);
+    }
+
+    .hero-portrait {
+        align-self: end;
+        width: min(100%, 22rem);
+    }
+
+    .hero-form-wrap {
+        margin-top: 0;
+    }
+
+    .hero-actions .hero-book {
+        display: none;
+    }
+}
+
+/* Laptop and up: copy | portrait | form, portrait standing on the marquee */
+@media (min-width: 64rem) {
+    .hero {
+        --marquee-h: 5rem;
+        padding-top: calc(var(--header-height) + 3rem);
+    }
+
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 15rem) minmax(0, 21.5rem);
+        grid-template-areas: "copy portrait form";
+        column-gap: 2.5rem;
+        align-items: center;
+    }
+
+    .hero-title {
+        font-size: clamp(2.25rem, 3.9vw, 3.875rem);
+    }
+
+    .hero-copy {
+        padding-bottom: calc(var(--marquee-h) + 2.5rem);
+    }
+
+    .hero-portrait {
+        width: 136%;
+        max-width: none;
+        margin: 0 -18%;
+        align-self: end;
+    }
+
+    .hero-badge {
+        left: 2%;
+        bottom: 24%;
+    }
+
+    .hero-form-wrap {
+        padding-block: 0 calc(var(--marquee-h) + 2.5rem);
+    }
+
+}
+
+/* Wide screens: more room for the portrait and form */
+@media (min-width: 75rem) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 20rem) minmax(0, 23.5rem);
+        column-gap: 3.5rem;
+    }
+
+    .hero-portrait {
+        width: 128%;
+        margin: 0 -14%;
+    }
+}
+
+/* ---------- About ---------- */
+.about {
+    padding-block: clamp(4.5rem, 11vw, 8.5rem);
+    background: url("../images/about/about-particles.svg") center / cover no-repeat, var(--ivory);
+}
+
+.about-grid {
+    display: grid;
+    gap: 4rem;
+}
+
+.about-media {
+    position: relative;
+    max-width: 34rem;
+    padding: 1.25rem 0 0 1.25rem;
+}
+
+/* Pink block peeking out behind the top-left corner */
+.about-media::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 58%;
+    height: 52%;
+    border-radius: 1.25rem;
+    background: var(--pink-500);
+}
+
+/* Fine champagne frame offset toward the bottom-right */
+.about-media::after {
+    content: "";
+    position: absolute;
+    right: -0.75rem;
+    bottom: -0.75rem;
+    width: 46%;
+    height: 40%;
+    border: 1px solid var(--champagne-700);
+    border-radius: 1.25rem;
+    opacity: 0.5;
+}
+
+.about-media picture {
+    position: relative;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    border-radius: 1.25rem;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    transition: transform 1.2s var(--ease-out);
+}
+
+.about-media:hover .about-photo {
+    transform: scale(1.03);
+}
+
+.about-award {
+    position: absolute;
+    right: 0.75rem;
+    bottom: -2rem;
+    z-index: 2;
+    display: grid;
+    justify-items: center;
+    width: 9rem;
+    padding: 0.875rem 0.75rem;
+    border-radius: 1rem;
+    background: var(--white);
+    text-align: center;
+    box-shadow: 0 1.5rem 3rem -1.25rem rgba(23, 19, 26, 0.35);
+}
+
+.about-award-icon {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--pink-100);
+}
+
+.about-award-icon svg {
+    width: 1.625rem;
+    height: 1.625rem;
+    fill: none;
+    stroke: var(--pink-700);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.about-award-num {
+    margin-top: 0.625rem;
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--ink-900);
+}
+
+.about-award-text {
+    margin-top: 0.375rem;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.about-content .section-title {
+    margin-top: 1rem;
+}
+
+.about-lede {
+    max-width: 32rem;
+    margin-top: 1.125rem;
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+.about-points {
+    display: grid;
+    gap: 1.375rem;
+    margin-top: 2rem;
+}
+
+.about-point {
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.about-point-icon {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 1px solid var(--pink-500);
+    border-radius: 50%;
+    background: var(--pink-100);
+    transition: background-color 0.45s var(--ease-out), transform 0.45s var(--ease-out);
+}
+
+.about-point-icon svg {
+    width: 1.375rem;
+    height: 1.375rem;
+    fill: none;
+    stroke: var(--pink-700);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.45s;
+}
+
+.about-point:hover .about-point-icon {
+    background: var(--pink-500);
+    transform: rotate(-8deg);
+}
+
+.about-point:hover .about-point-icon svg {
+    stroke: var(--ink-900);
+}
+
+.about-point h3 {
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--ink-900);
+}
+
+.about-point p {
+    margin-top: 0.125rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+}
+
+.about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem 2rem;
+    margin-top: 2.25rem;
+    padding-top: 2rem;
+    border-top: 1px solid #E8DFE4;
+}
+
+.about-call {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--ink-900);
+}
+
+.about-call small {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink-700);
+}
+
+.about-call-icon {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #E8DFE4;
+    border-radius: 50%;
+    transition: background-color 0.35s, border-color 0.35s;
+}
+
+.about-call-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: var(--pink-700);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.about-call:hover .about-call-icon,
+.about-call:focus-visible .about-call-icon {
+    border-color: var(--pink-500);
+    background: var(--pink-100);
+}
+
+@media (min-width: 30rem) {
+    .about-award {
+        right: -0.75rem;
+        width: 11.5rem;
+        padding: 1.25rem 1rem 1.125rem;
+    }
+
+    .about-award-num {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 48rem) {
+    .about-media {
+        justify-self: center;
+        width: 100%;
+        padding: 1.75rem 0 0 1.75rem;
+    }
+}
+
+@media (min-width: 64rem) {
+    .about-grid {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(4rem, 7vw, 7rem);
+        align-items: center;
+    }
+
+    .about-media {
+        justify-self: start;
+        padding: 2rem 0 0 2rem;
+    }
+
+    .about-award {
+        right: -2.5rem;
+        bottom: 2.5rem;
+    }
+}
+
+/* =========================================================
+   Practice areas
+   ========================================================= */
+.services {
+    position: relative;
+    padding-block: clamp(7rem, 16vw, 12rem) clamp(4.5rem, 11vw, 8.5rem);
+    background:
+        linear-gradient(to right, rgba(46, 38, 51, 0.05) 1px, transparent 1px) 0 0 / calc(100% / 6) 100%,
+        var(--white);
+    overflow: hidden;
+}
+
+/* Wave divider: the About section's ivory flowing into this one */
+.services::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: clamp(3rem, 8vw, 7rem);
+    background: url("../images/dividers/waves-ivory.svg") top / 100% 100% no-repeat;
+    pointer-events: none;
+}
+
+.services-grid {
+    display: grid;
+    gap: 3rem;
+}
+
+.services-lede {
+    max-width: 30rem;
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* ---------- Reviews proof ---------- */
+.services-proof {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+}
+
+.services-avatars {
+    display: flex;
+    padding-left: 0.6rem;
+}
+
+.services-avatars li {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-left: -0.6rem;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--pink-700);
+}
+
+.services-avatars li:nth-child(2) {
+    background: var(--champagne-700);
+}
+
+.services-avatars li:nth-child(3) {
+    background: var(--ink-800);
+}
+
+.services-stars {
+    display: flex;
+    gap: 0.125rem;
+}
+
+.services-stars svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--champagne-700);
+}
+
+.services-proof p {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.services-proof strong {
+    font-weight: 600;
+    color: var(--ink-900);
+}
+
+/* ---------- Review quote ---------- */
+.services-quote {
+    max-width: 30rem;
+    margin-top: 2rem;
+    padding-left: 1.25rem;
+    border-left: 3px solid var(--pink-700);
+}
+
+.services-quote blockquote {
+    margin: 0;
+}
+
+.services-quote blockquote p {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.45;
+    color: var(--ink-800);
+}
+
+.services-quote figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--pink-700);
+}
+
+/* ---------- Slider ---------- */
+.services-slider {
+    min-width: 0;
+}
+
+.services-track {
+    display: flex;
+    gap: 1.25rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 0.5rem var(--gutter) 2.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+}
+
+.services-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* Trailing space so every card, the last one included, can slide
+   to the start of the row and be counted */
+.services-track::after {
+    content: "";
+    flex: 0 0 max(0px, calc(100% - min(19.5rem, 84%) - 2.5rem));
+}
+
+.services-track:focus-visible {
+    outline: 2px solid var(--pink-700);
+    outline-offset: -2px;
+    border-radius: 1.5rem;
+}
+
+/* ---------- Service card ---------- */
+.service-card {
+    display: flex;
+    flex: 0 0 min(19.5rem, 84%);
+    flex-direction: column;
+    padding: 0.5rem;
+    border: 1px solid #F0E6EB;
+    border-radius: 1.5rem;
+    background: var(--white);
+    box-shadow: 0 1.25rem 2.5rem -1.5rem rgba(46, 38, 51, 0.25);
+    scroll-snap-align: start;
+}
+
+.service-media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 1.125rem;
+    overflow: hidden;
+}
+
+.service-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s var(--ease-out);
+}
+
+.service-card:hover .service-media img {
+    transform: scale(1.06);
+}
+
+.service-tag {
+    position: absolute;
+    top: 0.875rem;
+    left: 0.875rem;
+    padding: 0.4rem 0.875rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    background: var(--white);
+}
+
+.service-panel {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin: -3rem 0.5rem 0;
+    padding: 1.5rem 1.25rem 1.375rem;
+    border-radius: 1.125rem;
+    text-align: center;
+    color: var(--ink-900);
+    background: var(--pink-500);
+}
+
+.service-icon {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin: 0 auto 1rem;
+    border-radius: 0.875rem;
+    background: var(--white);
+    transition: transform 0.5s var(--ease-out);
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(-8deg) scale(1.05);
+}
+
+.service-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: var(--pink-700);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.service-title {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.service-points {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.service-points li {
+    position: relative;
+    padding-left: 1.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--ink-800);
+}
+
+/* Check mark in a soft circle */
+.service-points li::before {
+    content: "";
+    position: absolute;
+    top: 0.1rem;
+    left: 0;
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 50%;
+    background: var(--white);
+}
+
+.service-points li::after {
+    content: "";
+    position: absolute;
+    top: 0.33rem;
+    left: 0.41rem;
+    width: 0.3rem;
+    height: 0.55rem;
+    border-right: 2px solid var(--pink-700);
+    border-bottom: 2px solid var(--pink-700);
+    transform: rotate(45deg);
+}
+
+.service-link {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink-900);
+}
+
+.service-link svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.35s var(--ease-out);
+}
+
+.service-link:hover svg,
+.service-link:focus-visible svg {
+    transform: translateX(0.3rem);
+}
+
+.service-link:focus-visible {
+    outline: 2px solid var(--ink-900);
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+}
+
+/* ---------- Slider controls ---------- */
+.services-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: -0.75rem;
+}
+
+/* ---------- Slide counter ---------- */
+.services-count {
+    display: flex;
+    flex: 1 1 12rem;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.services-count-current {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--pink-700);
+}
+
+.services-progress {
+    position: relative;
+    flex: 1;
+    max-width: 10rem;
+    height: 2px;
+    border-radius: 2px;
+    background: #EADFE4;
+    overflow: hidden;
+}
+
+.services-progress-bar {
+    position: absolute;
+    inset: 0;
+    background: var(--pink-700);
+    transform-origin: left;
+    transform: scaleX(0.125);
+    transition: transform 0.5s var(--ease-out);
+}
+
+.services-control {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border: 1px solid #E5DADF;
+    border-radius: 50%;
+    background: var(--white);
+    cursor: pointer;
+    transition: background-color 0.35s, border-color 0.35s;
+}
+
+.services-control svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: var(--ink-900);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.35s;
+}
+
+.services-control .icon-play {
+    display: none;
+    fill: var(--ink-900);
+    stroke: none;
+}
+
+.services-pause.is-paused .icon-pause {
+    display: none;
+}
+
+.services-pause.is-paused .icon-play {
+    display: block;
+}
+
+.services-control:hover,
+.services-control:focus-visible {
+    border-color: var(--pink-700);
+    background: var(--pink-700);
+}
+
+.services-control:hover svg,
+.services-control:focus-visible svg {
+    stroke: var(--white);
+}
+
+.services-control:hover .icon-play,
+.services-control:focus-visible .icon-play {
+    fill: var(--white);
+}
+
+.services-control:focus-visible {
+    outline: 2px solid var(--pink-700);
+    outline-offset: 3px;
+}
+
+@media (min-width: 48rem) {
+    .service-card {
+        flex-basis: calc(46% - 0.625rem);
+    }
+
+    .services-track::after {
+        flex-basis: calc(54% - 2.5rem);
+    }
+}
+
+@media (min-width: 64rem) {
+    .services-grid {
+        grid-template-columns: minmax(0, 24rem) minmax(0, 1fr);
+        gap: clamp(3rem, 5vw, 5rem);
+        align-items: center;
+    }
+
+    /* Let the cards run off the right edge of the screen */
+    .services-track {
+        margin-left: 0;
+        margin-right: calc(-1 * var(--gutter) - max(0px, (100vw - var(--container)) / 2));
+        padding-left: 0;
+        scroll-padding-inline: 0;
+    }
+
+    .service-card {
+        flex-basis: 20.5rem;
+    }
+
+    .services-track::after {
+        flex-basis: max(0px, calc(100% - 20.5rem - 2.5rem));
+    }
+}
+
+/* =========================================================
+   Google reviews
+   ========================================================= */
+.reviews {
+    position: relative;
+    isolation: isolate;
+    /* Extra bottom room: the call-to-action card rises into this section */
+    padding-block: clamp(7rem, 16vw, 11.5rem) clamp(11rem, 22vw, 15rem);
+    color: var(--text-on-dark);
+    background: var(--ink-950);
+    overflow: hidden;
+}
+
+/* Wave divider: the white Practice Areas flowing into this section */
+.reviews::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: clamp(3rem, 8vw, 7rem);
+    background: url("../images/dividers/waves-white.svg") top / 100% 100% no-repeat;
+    pointer-events: none;
+}
+
+/* Courtroom photo under a solid dark wash */
+.reviews-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.reviews-bg picture {
+    display: block;
+    height: 100%;
+}
+
+/* The photo fades out at the foot so the section ends in solid ink,
+   matching the wave divider below */
+.reviews-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 92%);
+    mask-image: linear-gradient(180deg, #000 55%, transparent 92%);
+}
+
+.reviews-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 11, 16, 0.84);
+}
+
+.reviews-head {
+    max-width: 44rem;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.reviews-head .section-title {
+    margin-top: 0.75rem;
+}
+
+/* ---------- Rating summary ---------- */
+.reviews-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.875rem;
+    margin-top: 1.5rem;
+    padding: 0.625rem 1.25rem 0.625rem 0.875rem;
+    border: 1px solid var(--line-on-dark);
+    border-radius: 999px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.reviews-rating-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--white);
+}
+
+.reviews-rating-stars {
+    display: flex;
+    gap: 0.125rem;
+}
+
+.reviews-rating-stars svg {
+    width: 1rem;
+    height: 1rem;
+    fill: var(--champagne-500);
+}
+
+.reviews-rating-text {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    color: var(--text-on-dark);
+}
+
+/* ---------- Review wall ----------
+   Fixed-height window; the mask fades cards in at the top and out at
+   the bottom so they seem to drift on and off the screen. */
+.review-wall {
+    display: grid;
+    gap: 1.25rem;
+    height: 36rem;
+    margin-top: 3rem;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 16%, #000 84%, transparent 100%);
+}
+
+/* Phones show one column; more appear as space allows */
+.review-col-2,
+.review-col-3,
+.review-col-4 {
+    display: none;
+}
+
+.review-col-track {
+    display: grid;
+    gap: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.review-card {
+    padding: 1.375rem;
+    border-radius: 1.25rem;
+    background: var(--ivory);
+    box-shadow: 0 1rem 2rem -1.25rem rgba(0, 0, 0, 0.6);
+}
+
+.review-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.review-stars {
+    display: flex;
+    gap: 0.125rem;
+}
+
+.review-stars svg {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    fill: var(--champagne-700);
+}
+
+.review-card-google {
+    display: inline-flex;
+    padding: 0.3rem;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.review-card-google svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.review-card-google:hover,
+.review-card-google:focus-visible {
+    background: var(--pink-100);
+}
+
+.review-card-quote {
+    margin-top: 0.875rem;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+}
+
+.review-card-quote strong {
+    font-weight: 600;
+    color: var(--ink-900);
+}
+
+.review-card-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.125rem;
+    padding-top: 1.125rem;
+    border-top: 1px solid #EBE3E7;
+}
+
+.review-card-avatar {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--ink-900);
+    background: var(--pink-500);
+}
+
+.review-card-name {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink-900);
+}
+
+.review-card-source {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Each column holds two copies of its cards. Odd columns drift up and
+   even columns drift down, very slowly; the loop lands on the second
+   copy exactly where the first began, so there's no seam. */
+@media (prefers-reduced-motion: no-preference) {
+    .review-col {
+        animation: reviews-up 80s linear infinite;
+    }
+
+    .review-col-2,
+    .review-col-4 {
+        animation-name: reviews-down;
+    }
+
+    .review-col-2 { animation-delay: -20s; }
+    .review-col-3 { animation-delay: -45s; }
+    .review-col-4 { animation-delay: -60s; }
+
+    .review-wall:hover .review-col,
+    .review-wall:focus-within .review-col {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes reviews-up {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+}
+
+@keyframes reviews-down {
+    from { transform: translateY(-50%); }
+    to { transform: translateY(0); }
+}
+
+/* No motion: one still copy, and the window scrolls instead */
+@media (prefers-reduced-motion: reduce) {
+    .review-wall {
+        overflow-y: auto;
+    }
+
+    .review-col-track[aria-hidden="true"] {
+        display: none;
+    }
+}
+
+/* ---------- Google buttons ---------- */
+.reviews-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.75rem;
+    text-align: center;
+    font-size: 0.9375rem;
+}
+
+.reviews-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.reviews-google {
+    padding-left: 0.4375rem;
+    padding-right: 1.5rem;
+}
+
+/* White disc so the four-color G reads on the pink button */
+.reviews-google-icon {
+    display: grid;
+    place-items: center;
+    width: 2.375rem;
+    height: 2.375rem;
+    border-radius: 50%;
+    background: var(--white);
+}
+
+.reviews-google-icon svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+@media (min-width: 40rem) {
+    .review-wall {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .review-col-2 {
+        display: block;
+    }
+}
+
+@media (min-width: 64rem) {
+    .review-wall {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        height: 40rem;
+        margin-top: 3.5rem;
+    }
+
+    .review-col-3 {
+        display: block;
+    }
+}
+
+@media (min-width: 90rem) {
+    .review-wall {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .review-col-4 {
+        display: block;
+    }
+}
+
+/* =========================================================
+   Final call to action
+   ========================================================= */
+.cta {
+    position: relative;
+    z-index: 1;
+    padding-bottom: clamp(4rem, 9vw, 6.5rem);
+    background: var(--ivory);
+}
+
+/* Wave divider: the dark reviews section flowing down behind the card */
+.cta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: clamp(3rem, 8vw, 7rem);
+    background: url("../images/dividers/waves-dark.svg") top / 100% 100% no-repeat;
+    pointer-events: none;
+}
+
+/* The card rises into the reviews above */
+.cta-card {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: calc(-1 * clamp(8rem, 16vw, 11rem));
+    padding: clamp(3.5rem, 8vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+    border-radius: 1.75rem;
+    text-align: center;
+    color: var(--text-on-dark);
+    background: var(--ink-900);
+    box-shadow: 0 2.5rem 4rem -2rem rgba(14, 11, 16, 0.55);
+    overflow: hidden;
+}
+
+.cta-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.cta-bg picture {
+    display: block;
+    height: 100%;
+}
+
+.cta-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(23, 19, 26, 0.78);
+}
+
+.cta-card .section-title {
+    margin-top: 0.75rem;
+}
+
+.cta-lede {
+    max-width: 34rem;
+    margin-top: 1.125rem;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+/* =========================================================
+   Contact
+   ========================================================= */
+.contact {
+    position: relative;
+    isolation: isolate;
+    padding-bottom: clamp(4.5rem, 11vw, 8rem);
+    background: var(--ivory);
+}
+
+/* Fine pink wave pattern, faded in at the top so it doesn't start
+   with a hard edge under the call to action */
+.contact::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: url("../images/patterns/pink-waves.svg") center top / 160px 40px repeat;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
+    pointer-events: none;
+}
+
+.contact-grid {
+    display: grid;
+    gap: 3rem;
+}
+
+/* ---------- Office card ---------- */
+.contact-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 3.25rem;
+    border-radius: 1.75rem;
+    color: var(--text-on-dark);
+    background: var(--ink-900);
+    overflow: hidden;
+}
+
+.contact-card-main {
+    min-width: 0;
+    padding: 2rem 1.25rem;
+}
+
+.contact-photo {
+    width: 9.5rem;
+    aspect-ratio: 1;
+    border-radius: 1.25rem;
+    background: var(--pink-500);
+    overflow: hidden;
+}
+
+.contact-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contact-name {
+    margin-top: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 1.625rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.contact-role {
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    color: var(--champagne-500);
+}
+
+.contact-info {
+    display: grid;
+    gap: 1.125rem;
+    margin-top: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--line-on-dark);
+}
+
+.contact-info li {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.contact-info small {
+    display: block;
+    margin-bottom: 0.125rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink-500);
+}
+
+.contact-info a {
+    color: var(--white);
+    overflow-wrap: break-word;
+    transition: color 0.25s;
+}
+
+.contact-info a:hover,
+.contact-info a:focus-visible {
+    color: var(--pink-400);
+}
+
+.contact-info-icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid var(--line-on-dark);
+    border-radius: 50%;
+}
+
+.contact-info-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: var(--pink-500);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.contact-hours {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    column-gap: 0.875rem;
+    row-gap: 0.125rem;
+    color: var(--white);
+}
+
+.contact-hours > * {
+    white-space: nowrap;
+}
+
+.contact-hours > :nth-child(odd) {
+    color: var(--text-on-dark);
+    opacity: 0.75;
+}
+
+.contact-social {
+    display: flex;
+    gap: 0.625rem;
+    margin-top: 1.75rem;
+}
+
+.contact-social-link {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    transition: background-color 0.3s, transform 0.3s var(--ease-out);
+}
+
+.contact-social-link svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.contact-social-link:hover,
+.contact-social-link:focus-visible {
+    background: var(--pink-500);
+    transform: translateY(-2px);
+}
+
+.contact-social-link:hover svg,
+.contact-social-link:focus-visible svg {
+    stroke: var(--ink-900);
+}
+
+/* Pink band with the hero's three words scrolling slowly up the side.
+   Two identical groups: the track moves up by one group (-50%), so
+   the loop never shows a seam. Each word is set sideways to read
+   bottom to top. */
+.contact-band {
+    position: relative;
+    overflow: hidden;
+    background: var(--pink-500);
+}
+
+.contact-band-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: band-scroll 40s linear infinite;
+}
+
+.contact-band-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding-bottom: 1.25rem;
+}
+
+.contact-band-group > span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--ink-900);
+}
+
+.contact-band-group > .contact-band-mark {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--pink-700);
+}
+
+.contact-card:hover .contact-band-track {
+    animation-play-state: paused;
+}
+
+@keyframes band-scroll {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50%); }
+}
+
+/* ---------- Form side ---------- */
+.contact-lede {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* Points consultation requests back to the hero form */
+.contact-book {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--pink-500);
+    border-radius: 1rem;
+    background: var(--pink-100);
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.contact-book strong {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--ink-900);
+}
+
+.contact-book-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--pink-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact-book-icon {
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: var(--pink-500);
+}
+
+.contact-book-icon svg,
+.contact-book-arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: var(--ink-900);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.contact-book-arrow {
+    flex: none;
+    margin-left: auto;
+    stroke: var(--pink-700);
+    transition: transform 0.35s var(--ease-out);
+}
+
+.contact-book:hover,
+.contact-book:focus-visible {
+    border-color: var(--pink-700);
+    background: var(--pink-400);
+}
+
+.contact-book:hover .contact-book-arrow,
+.contact-book:focus-visible .contact-book-arrow {
+    transform: translateX(0.3rem);
+}
+
+.contact-form {
+    position: relative;
+    margin-top: 1.75rem;
+}
+
+.contact-fields {
+    display: grid;
+    gap: 1rem;
+}
+
+.contact-fields textarea {
+    min-height: 8rem;
+}
+
+.contact-submit {
+    margin-top: 1.5rem;
+}
+
+.contact-form .consult-success {
+    padding: 2rem 0;
+}
+
+.contact-form.is-sent > :not(.consult-success) {
+    display: none;
+}
+
+@media (min-width: 30rem) {
+    .contact-card {
+        grid-template-columns: minmax(0, 1fr) 4rem;
+    }
+
+    .contact-card-main {
+        padding: 2.5rem 2.25rem;
+    }
+
+    .contact-info li {
+        gap: 0.875rem;
+        font-size: 0.9375rem;
+    }
+
+    .contact-hours {
+        column-gap: 1.25rem;
+    }
+
+    .contact-band-group > span {
+        font-size: 1.5rem;
+    }
+
+    .contact-band-group > .contact-band-mark {
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 40rem) {
+    .contact-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-field-full {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (min-width: 64rem) {
+    .contact-grid {
+        grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
+        gap: clamp(3rem, 6vw, 6rem);
+        align-items: start;
+    }
+
+    .contact-card {
+        position: sticky;
+        top: calc(var(--header-height) + 1.5rem);
+    }
+}
