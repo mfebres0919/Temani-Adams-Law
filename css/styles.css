@@ -1853,6 +1853,11 @@
     gap: 3rem;
 }
 
+/* Phones and tablets: the form comes first, her office card after */
+.contact-content {
+    order: -1;
+}
+
 /* ---------- Office card ---------- */
 .contact-card {
     display: grid;
@@ -2201,6 +2206,10 @@
 }
 
 @media (min-width: 64rem) {
+    .contact-content {
+        order: 0;
+    }
+
     .contact-grid {
         grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
         gap: clamp(3rem, 6vw, 6rem);
