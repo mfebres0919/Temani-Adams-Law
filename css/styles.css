@@ -67,7 +67,7 @@
     }
 }
 
-/* Dark wash so the copy, portrait and form stay readable, with a very
+/* Dark wash so the copy and form stay readable, with a very
    light pink sweep across the top */
 .hero-bg::after {
     content: "";
@@ -82,7 +82,6 @@
     display: grid;
     grid-template-areas:
         "copy"
-        "portrait"
         "form";
 }
 
@@ -165,90 +164,58 @@
     color: var(--text-on-dark);
 }
 
-/* Portrait */
-.hero-portrait {
-    grid-area: portrait;
-    position: relative;
-    justify-self: center;
-    width: min(100%, 21rem);
-    margin-top: 2.5rem;
-}
-
-/* Spotlight disc and a fine champagne ring behind her */
-.hero-portrait::before,
-.hero-portrait::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    transform: translateX(-50%);
-}
-
-.hero-portrait::before {
-    top: 6%;
-    width: 112%;
-    background: radial-gradient(circle at 50% 40%, rgba(244, 179, 204, 0.32), rgba(244, 179, 204, 0.06) 55%, transparent 70%);
-}
-
-.hero-portrait::after {
-    top: 2%;
-    width: 96%;
-    border: 1px solid rgba(227, 213, 178, 0.35);
-}
-
-.hero-photo {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: auto;
-}
-
-.hero-badge {
-    position: absolute;
-    left: -0.5rem;
-    bottom: 22%;
-    z-index: 2;
-    display: flex;
+/* Book button plus a "Talk to Temani" call link with her headshot */
+.hero-call {
+    display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.625rem 1rem 0.625rem 0.625rem;
+    padding: 0.3125rem 1.25rem 0.3125rem 0.3125rem;
     border: 1px solid var(--line-on-dark);
     border-radius: 999px;
-    background: rgba(23, 19, 26, 0.78);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    font-size: 0.75rem;
-    line-height: 1.35;
-    color: var(--text-on-dark-muted);
-    box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.6);
-}
-
-.hero-badge strong {
-    display: block;
-    font-size: 0.8125rem;
-    font-weight: 600;
     color: var(--white);
+    transition: border-color 0.35s, background-color 0.35s;
 }
 
-.hero-badge-icon {
-    display: grid;
-    place-items: center;
+.hero-call-photo {
     flex: none;
-    width: 2.25rem;
-    height: 2.25rem;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
-    background: var(--pink-500);
+    box-shadow: 0 0 0 2px var(--pink-500);
+    overflow: hidden;
 }
 
-.hero-badge-icon svg {
-    width: 1.125rem;
-    height: 1.125rem;
-    fill: none;
-    stroke: var(--ink-900);
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.hero-call-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease-out);
+}
+
+.hero-call-text {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.hero-call-text small {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--pink-500);
+}
+
+.hero-call:hover,
+.hero-call:focus-visible {
+    border-color: var(--pink-500);
+    background: rgba(244, 179, 204, 0.1);
+}
+
+.hero-call:hover .hero-call-photo img,
+.hero-call:focus-visible .hero-call-photo img {
+    transform: scale(1.08);
 }
 
 /* ---------- Consultation form ---------- */
@@ -256,7 +223,7 @@
     grid-area: form;
     position: relative;
     z-index: 3;
-    margin-top: -4.5rem;
+    margin-top: 2.5rem;
     padding-bottom: calc(var(--marquee-h) + 2.5rem);
     scroll-margin-top: calc(var(--header-height) + 1rem);
 }
@@ -495,8 +462,8 @@
 }
 
 /* ---------- Marquee ----------
-   A frosted-glass band laid over the bottom of the hero, so her
-   portrait shows through softly blurred behind the practice areas. */
+   A frosted-glass band laid over the bottom of the hero, with the
+   background photos showing through softly blurred behind the logos. */
 .hero-marquee {
     position: relative;
     z-index: 4;
@@ -580,7 +547,6 @@
 
 /* ---------- Hero entrance ---------- */
 .hero-copy > *,
-.hero-portrait,
 .hero-form-wrap {
     animation: hero-rise 1.1s var(--ease-out) both;
 }
@@ -589,7 +555,6 @@
 .hero-copy > :nth-child(3) { animation-delay: 0.2s; }
 .hero-copy > :nth-child(4) { animation-delay: 0.3s; }
 .hero-copy > :nth-child(5) { animation-delay: 0.4s; }
-.hero-portrait { animation-delay: 0.25s; }
 .hero-form-wrap { animation-delay: 0.45s; }
 
 @keyframes hero-rise {
@@ -605,7 +570,7 @@
     }
 }
 
-/* Tablet and small laptop: copy and portrait on the left, form on the right */
+/* Tablet and up: copy on the left, form on the right */
 @media (min-width: 48rem) {
     .hero {
         padding-top: calc(var(--header-height) + 3.5rem);
@@ -613,9 +578,7 @@
 
     .hero-grid {
         grid-template-columns: minmax(0, 1fr) minmax(0, 21.5rem);
-        grid-template-areas:
-            "copy form"
-            "portrait form";
+        grid-template-areas: "copy form";
         column-gap: 3rem;
         align-items: start;
     }
@@ -624,21 +587,13 @@
         font-size: clamp(2.75rem, 5.4vw, 3.75rem);
     }
 
-    .hero-portrait {
-        align-self: end;
-        width: min(100%, 22rem);
-    }
-
     .hero-form-wrap {
         margin-top: 0;
     }
 
-    .hero-actions .hero-book {
-        display: none;
-    }
 }
 
-/* Laptop and up: copy | portrait | form, portrait standing on the marquee */
+/* Laptop and up: bigger headline and more room between columns */
 @media (min-width: 64rem) {
     .hero {
         --marquee-h: 5rem;
@@ -646,30 +601,17 @@
     }
 
     .hero-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 15rem) minmax(0, 21.5rem);
-        grid-template-areas: "copy portrait form";
-        column-gap: 2.5rem;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
+        column-gap: clamp(2.5rem, 4vw, 4rem);
         align-items: center;
     }
 
     .hero-title {
-        font-size: clamp(2.25rem, 3.9vw, 3.875rem);
+        font-size: clamp(3.25rem, 5.4vw, 5rem);
     }
 
     .hero-copy {
         padding-bottom: calc(var(--marquee-h) + 2.5rem);
-    }
-
-    .hero-portrait {
-        width: 136%;
-        max-width: none;
-        margin: 0 -18%;
-        align-self: end;
-    }
-
-    .hero-badge {
-        left: 2%;
-        bottom: 24%;
     }
 
     .hero-form-wrap {
@@ -678,17 +620,11 @@
 
 }
 
-/* Wide screens: more room for the portrait and form */
+/* Wide screens: a little more room for the form */
 @media (min-width: 75rem) {
     .hero-grid {
         max-width: var(--container-wide);
-        grid-template-columns: minmax(0, 1fr) minmax(0, 21rem) minmax(0, 24rem);
-        column-gap: clamp(3.5rem, 5vw, 5.5rem);
-    }
-
-    .hero-portrait {
-        width: 128%;
-        margin: 0 -14%;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 35rem);
     }
 }
 
