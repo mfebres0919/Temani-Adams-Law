@@ -125,6 +125,58 @@
 
     updateScrolled();
     window.addEventListener("scroll", updateScrolled, { passive: true });
+
+    // Highlight the nav link for the section on screen. A section counts
+    // as current once its top passes 40% of the way down the window.
+    var spyLinks = menu.querySelectorAll("[data-section]");
+    var spySections = [];
+
+    spyLinks.forEach(function (link) {
+        var section = document.getElementById(link.getAttribute("data-section"));
+
+        if (section) {
+            spySections.push({ link: link, section: section });
+        }
+    });
+
+    var spyFrame = null;
+
+    function updateSpy() {
+        spyFrame = null;
+        var line = window.innerHeight * 0.4;
+        var current = null;
+
+        spySections.forEach(function (item) {
+            if (item.section.getBoundingClientRect().top <= line) {
+                current = item;
+            }
+        });
+
+        // Past the bottom of the page, the last section stays lit
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2 && spySections.length) {
+            current = spySections[spySections.length - 1];
+        }
+
+        spySections.forEach(function (item) {
+            var active = item === current;
+            item.link.classList.toggle("is-active", active);
+
+            if (active && item.link.tagName === "A") {
+                item.link.setAttribute("aria-current", "location");
+            } else {
+                item.link.removeAttribute("aria-current");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", function () {
+        if (!spyFrame) {
+            spyFrame = requestAnimationFrame(updateSpy);
+        }
+    }, { passive: true });
+
+    window.addEventListener("resize", updateSpy);
+    updateSpy();
 })();
 
 /* ---------- Brush underlines ----------

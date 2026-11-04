@@ -627,7 +627,8 @@ button {
 
 .nav-link:hover,
 .nav-link:focus-visible,
-.nav-link[aria-current="page"] {
+.nav-link[aria-current="page"],
+.nav-link.is-active {
     color: var(--pink-500);
 }
 
@@ -828,7 +829,8 @@ button {
 
     .nav-link:hover::after,
     .nav-link:focus-visible::after,
-    .nav-link[aria-current="page"]::after {
+    .nav-link[aria-current="page"]::after,
+    .nav-link.is-active::after {
         transform: scaleX(1);
     }
 
@@ -1067,7 +1069,8 @@ button {
 }
 
 .site-header.is-scrolled:not(.menu-open) .nav-list > .nav-item > .nav-link:hover,
-.site-header.is-scrolled:not(.menu-open) .nav-list > .nav-item > .nav-link:focus-visible {
+.site-header.is-scrolled:not(.menu-open) .nav-list > .nav-item > .nav-link:focus-visible,
+.site-header.is-scrolled:not(.menu-open) .nav-list > .nav-item > .nav-link.is-active {
     color: var(--pink-700);
 }
 

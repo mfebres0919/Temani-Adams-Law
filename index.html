@@ -38,36 +38,26 @@
 
             <nav class="site-nav" id="site-menu" aria-label="Main">
                 <ul class="nav-list">
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#wrongful-death">Wrongful Death</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" data-section="about">About</a></li>
                     <li class="nav-item has-sub">
-                        <button class="nav-link nav-sub-toggle" type="button" aria-expanded="false" aria-controls="sub-federal">
-                            Federal Cases
+                        <button class="nav-link nav-sub-toggle" type="button" aria-expanded="false" aria-controls="sub-practice" data-section="practice-areas">
+                            Practice Areas
                             <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
                         </button>
-                        <ul class="nav-sub" id="sub-federal">
-                            <li><a href="#federal">Federal Criminal Defense</a></li>
-                            <li><a href="#federal">Stages of a Federal Case</a></li>
-                            <li><a href="#federal">Federal Sentencing</a></li>
-                            <li><a href="#federal">Federal Drug Charges</a></li>
-                            <li><a href="#federal">Federal Gun Charges</a></li>
-                            <li><a href="#federal">Supervised Release Revocation</a></li>
-                            <li><a href="#federal">Early Discharge From Supervised Release</a></li>
+                        <ul class="nav-sub" id="sub-practice">
+                            <li><a href="#practice-areas">All Practice Areas</a></li>
+                            <li><a href="#federal-drug-charges">Federal Drug Charges</a></li>
+                            <li><a href="#supervised-release-violations">Supervised Release Violations</a></li>
+                            <li><a href="#federal-gun-charges">Federal Gun Charges</a></li>
+                            <li><a href="#early-discharge">Early Discharge</a></li>
+                            <li><a href="#fatal-car-accidents">Fatal Car Accidents</a></li>
+                            <li><a href="#drowning-accidents">Drowning Accidents</a></li>
+                            <li><a href="#commercial-vehicle-accidents">18 Wheeler &amp; Commercial Vehicles</a></li>
+                            <li><a href="#workplace-accidents">Workplace Accidents</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item has-sub">
-                        <button class="nav-link nav-sub-toggle" type="button" aria-expanded="false" aria-controls="sub-texas">
-                            Texas Cases
-                            <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
-                        </button>
-                        <ul class="nav-sub" id="sub-texas">
-                            <li><a href="#texas">Texas Drug Defense</a></li>
-                            <li><a href="#texas">Probation Violations</a></li>
-                            <li><a href="#texas">Early Release From Probation</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#results">Case Results</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faqs">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews" data-section="reviews">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-section="contact">Contact</a></li>
                 </ul>
 
                 <div class="nav-menu-footer">
@@ -467,8 +457,9 @@
                     </ul>
 
                     <div class="about-actions">
-                        <a class="button button-ink" href="#results">
+                        <a class="button button-ink" href="https://temaniadamslaw.com/case-results/" target="_blank" rel="noopener">
                             See Her Case Results
+                            <span class="visually-hidden"> (opens in a new tab)</span>
                             <span class="button-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                         </a>
                         <a class="about-call" href="tel:+14692880888">
@@ -519,7 +510,7 @@
 
                 <div class="services-slider" role="region" aria-roledescription="carousel" aria-label="Practice areas">
                     <ul class="services-track" id="services-track" tabindex="0">
-                    <li class="service-card" id="federal">
+                    <li class="service-card" id="federal-drug-charges">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/federal-drug-charges-m.webp" type="image/webp">
@@ -540,7 +531,7 @@
                             <a class="service-link" href="html/federal-drug-charges.html">Learn More<span class="visually-hidden"> about federal drug charges</span> <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                         </div>
                     </li>
-                    <li class="service-card">
+                    <li class="service-card" id="supervised-release-violations">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/supervised-release-violations-m.webp" type="image/webp">
@@ -561,7 +552,7 @@
                             <a class="service-link" href="html/supervised-release-violations.html">Learn More<span class="visually-hidden"> about supervised release violations</span> <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                         </div>
                     </li>
-                    <li class="service-card">
+                    <li class="service-card" id="federal-gun-charges">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/federal-gun-charges-m.webp" type="image/webp">
@@ -582,7 +573,7 @@
                             <a class="service-link" href="html/federal-gun-charges.html">Learn More<span class="visually-hidden"> about federal gun charges</span> <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                         </div>
                     </li>
-                    <li class="service-card">
+                    <li class="service-card" id="early-discharge">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/early-discharge-m.webp" type="image/webp">
@@ -603,7 +594,7 @@
                             <a class="service-link" href="html/early-discharge.html">Learn More<span class="visually-hidden"> about early discharge from supervised release</span> <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                         </div>
                     </li>
-                    <li class="service-card" id="wrongful-death">
+                    <li class="service-card" id="fatal-car-accidents">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/fatal-car-accidents-m.webp" type="image/webp">
@@ -624,7 +615,7 @@
                             <a class="service-link" href="html/fatal-car-accidents.html">Learn More<span class="visually-hidden"> about fatal car accident cases</span> <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                         </div>
                     </li>
-                    <li class="service-card">
+                    <li class="service-card" id="drowning-accidents">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/drowning-accidents-m.webp" type="image/webp">
@@ -645,7 +636,7 @@
                             <a class="service-link" href="html/drowning-accidents.html">Learn More<span class="visually-hidden"> about drowning accident cases</span> <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                         </div>
                     </li>
-                    <li class="service-card">
+                    <li class="service-card" id="commercial-vehicle-accidents">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/commercial-vehicle-accidents-m.webp" type="image/webp">
@@ -666,7 +657,7 @@
                             <a class="service-link" href="html/commercial-vehicle-accidents.html">Learn More<span class="visually-hidden"> about 18 wheeler and commercial vehicle accident cases</span> <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
                         </div>
                     </li>
-                    <li class="service-card">
+                    <li class="service-card" id="workplace-accidents">
                         <div class="service-media">
                             <picture>
                                 <source media="(max-width: 29.99rem)" srcset="images/services/workplace-accidents-m.webp" type="image/webp">
@@ -1356,7 +1347,7 @@
                     <li><a href="html/supervised-release-violations.html">Supervised Release Violations</a></li>
                     <li><a href="html/federal-gun-charges.html">Federal Gun Charges</a></li>
                     <li><a href="html/early-discharge.html">Early Discharge</a></li>
-                    <li><a href="#wrongful-death">Wrongful Death</a></li>
+                    <li><a href="#fatal-car-accidents">Wrongful Death</a></li>
                 </ul>
             </nav>
 
@@ -1364,10 +1355,10 @@
                 <h2 class="footer-heading" id="footer-quick">Quick Links</h2>
                 <ul class="footer-links">
                     <li><a href="#about">About Temani</a></li>
-                    <li><a href="#results">Case Results</a></li>
+                    <li><a href="#practice-areas">Practice Areas</a></li>
                     <li><a href="#reviews">Client Reviews</a></li>
-                    <li><a href="#faqs">FAQs</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="#consultation">Book a Consultation</a></li>
                 </ul>
             </nav>
 
