@@ -9,10 +9,7 @@
     overflow: hidden;
     --marquee-h: 4.25rem;
     padding-top: calc(var(--header-height) + 2.5rem);
-    background:
-        radial-gradient(60rem 40rem at 50% 30%, rgba(244, 179, 204, 0.14), transparent 60%),
-        radial-gradient(40rem 30rem at 100% 100%, rgba(227, 213, 178, 0.08), transparent 70%),
-        var(--ink-900);
+    background: var(--ink-900);
     color: var(--text-on-dark);
 }
 
@@ -23,15 +20,62 @@
     pointer-events: none;
 }
 
-.hero-scales {
+/* Background slideshow: three photos crossfade on a 21s loop, each
+   slowly zooming (alternating in and out) while it's on screen.
+   Negative delays start the first photo already visible. */
+.hero-slide {
     position: absolute;
-    left: 50%;
-    top: 46%;
-    width: min(64rem, 150vw);
-    max-width: none;
-    height: auto;
-    opacity: 0.045;
-    transform: translate(-50%, -50%);
+    inset: 0;
+    opacity: 0;
+    animation: hero-zoom-in 21s linear infinite;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-slide:nth-child(1) { animation-delay: -1.5s; }
+.hero-slide:nth-child(2) { animation-name: hero-zoom-out; animation-delay: 5.5s; }
+.hero-slide:nth-child(3) { animation-delay: 12.5s; }
+
+@keyframes hero-zoom-in {
+    0% { opacity: 0; transform: scale(1); }
+    7% { opacity: 1; }
+    33% { opacity: 1; }
+    40% { opacity: 0; transform: scale(1.12); }
+    100% { opacity: 0; transform: scale(1.12); }
+}
+
+@keyframes hero-zoom-out {
+    0% { opacity: 0; transform: scale(1.12); }
+    7% { opacity: 1; }
+    33% { opacity: 1; }
+    40% { opacity: 0; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+/* No motion: just the first photo, held still */
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide {
+        animation: none;
+    }
+
+    .hero-slide:first-child {
+        opacity: 1;
+    }
+}
+
+/* Dark wash so the copy, portrait and form stay readable, with a very
+   light pink sweep across the top */
+.hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(120deg, rgba(244, 179, 204, 0.16) 0%, rgba(244, 179, 204, 0.04) 45%, rgba(244, 179, 204, 0.1) 100%),
+        rgba(23, 19, 26, 0.86);
 }
 
 .hero-grid {
@@ -637,8 +681,9 @@
 /* Wide screens: more room for the portrait and form */
 @media (min-width: 75rem) {
     .hero-grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 20rem) minmax(0, 23.5rem);
-        column-gap: 3.5rem;
+        max-width: var(--container-wide);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 21rem) minmax(0, 24rem);
+        column-gap: clamp(3.5rem, 5vw, 5.5rem);
     }
 
     .hero-portrait {
@@ -1717,7 +1762,7 @@
     position: relative;
     z-index: 1;
     padding-bottom: clamp(4rem, 9vw, 6.5rem);
-    background: var(--ivory);
+    background: url("../images/patterns/pink-waves.svg") center bottom / 160px 40px repeat, var(--ivory);
 }
 
 /* Wave divider: the dark reviews section flowing down behind the card */
@@ -1795,24 +1840,12 @@
 /* =========================================================
    Contact
    ========================================================= */
+/* Fine pink wave pattern behind the CTA card and the contact section.
+   Anchored to the CTA's bottom and the contact's top so the tiles
+   line up with no seam between the two sections. */
 .contact {
-    position: relative;
-    isolation: isolate;
     padding-bottom: clamp(4.5rem, 11vw, 8rem);
-    background: var(--ivory);
-}
-
-/* Fine pink wave pattern, faded in at the top so it doesn't start
-   with a hard edge under the call to action */
-.contact::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: url("../images/patterns/pink-waves.svg") center top / 160px 40px repeat;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
-    mask-image: linear-gradient(180deg, transparent 0%, #000 30%);
-    pointer-events: none;
+    background: url("../images/patterns/pink-waves.svg") center top / 160px 40px repeat, var(--ivory);
 }
 
 .contact-grid {
@@ -2177,5 +2210,206 @@
     .contact-card {
         position: sticky;
         top: calc(var(--header-height) + 1.5rem);
+    }
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+    position: relative;
+    padding-top: clamp(6.5rem, 14vw, 10rem);
+    color: var(--text-on-dark);
+    background: var(--ink-950);
+}
+
+/* Wave divider: the ivory contact section flowing into the footer */
+.site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: clamp(3rem, 8vw, 7rem);
+    background: url("../images/dividers/waves-ivory.svg") top / 100% 100% no-repeat;
+    pointer-events: none;
+}
+
+.footer-grid {
+    display: grid;
+    gap: 2.75rem;
+    padding-bottom: 3.5rem;
+}
+
+.footer-logo {
+    display: inline-block;
+}
+
+.footer-logo img {
+    width: auto;
+    height: 4.5rem;
+}
+
+.footer-blurb {
+    max-width: 22rem;
+    margin-top: 1.25rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.625rem;
+    margin-top: 1.5rem;
+}
+
+.footer-social-link {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--line-on-dark);
+    border-radius: 50%;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s var(--ease-out);
+}
+
+.footer-social-link svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+    border-color: var(--pink-500);
+    background: var(--pink-500);
+    transform: translateY(-2px);
+}
+
+.footer-social-link:hover svg,
+.footer-social-link:focus-visible svg {
+    stroke: var(--ink-900);
+}
+
+.footer-heading {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.footer-links,
+.footer-contact {
+    display: grid;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+}
+
+.footer-links a,
+.footer-contact a {
+    min-width: 0;
+    overflow-wrap: break-word;
+    font-size: 0.9375rem;
+    color: var(--text-on-dark);
+    transition: color 0.25s;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible,
+.footer-contact a:hover,
+.footer-contact a:focus-visible {
+    color: var(--pink-500);
+}
+
+.footer-contact li {
+    display: flex;
+    min-width: 0;
+    gap: 0.75rem;
+    line-height: 1.5;
+}
+
+.footer-contact svg {
+    flex: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-top: 0.15rem;
+    fill: none;
+    stroke: var(--pink-500);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.footer-pay-label {
+    margin-top: 1.75rem;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--champagne-500);
+}
+
+.footer-pay {
+    margin-top: 0.75rem;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 2rem;
+    padding-block: 1.5rem 2rem;
+    /* Divider line kept inside the container's side padding */
+    background: linear-gradient(var(--line-on-dark), var(--line-on-dark)) center top / calc(100% - 2 * var(--gutter)) 1px no-repeat;
+    font-size: 0.8125rem;
+    color: rgba(244, 239, 242, 0.7);
+}
+
+.footer-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+    font-weight: 500;
+    color: var(--white);
+    transition: color 0.25s;
+}
+
+.footer-top svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 0.35s var(--ease-out);
+}
+
+.footer-top:hover,
+.footer-top:focus-visible {
+    color: var(--pink-500);
+}
+
+.footer-top:hover svg,
+.footer-top:focus-visible svg {
+    transform: translateY(-0.2rem);
+}
+
+@media (min-width: 40rem) {
+    .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 75rem) {
+    .footer-grid {
+        grid-template-columns: minmax(0, 1.3fr) repeat(3, minmax(0, 1fr));
+        gap: 3rem;
+        padding-bottom: 4.5rem;
     }
 }

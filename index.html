@@ -19,16 +19,20 @@
     <script src="javascript/global.js" defer></script>
     <script src="javascript/script.js" defer></script>
 </head>
-<body>
+<body id="top">
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <!-- ===== Header ===== -->
     <header class="site-header" id="site-header">
         <div class="container header-inner">
             <a class="brand" href="#main" aria-label="Temani M. Adams, home">
-                <picture>
+                <picture class="brand-light">
                     <source srcset="images/brand/tma-logo-light.webp" type="image/webp">
                     <img class="brand-logo" src="images/brand/tma-logo-light.png" alt="" width="378" height="360" decoding="async">
+                </picture>
+                <picture class="brand-dark">
+                    <source srcset="images/brand/tma-logo-dark.webp" type="image/webp">
+                    <img class="brand-logo" src="images/brand/tma-logo-dark.png" alt="" width="378" height="360" decoding="async">
                 </picture>
             </a>
 
@@ -100,7 +104,24 @@
         <!-- ===== Hero ===== -->
         <section class="hero" aria-labelledby="hero-title">
             <div class="hero-bg" aria-hidden="true">
-                <img class="hero-scales" src="images/hero/hero-scales.svg" alt="" width="800" height="640" decoding="async">
+                <picture class="hero-slide">
+                    <source media="(max-width: 47.99rem)" srcset="images/hero/hero-bg-1-m.webp" type="image/webp">
+                    <source media="(max-width: 47.99rem)" srcset="images/hero/hero-bg-1-m.jpg" type="image/jpeg">
+                    <source srcset="images/hero/hero-bg-1.webp" type="image/webp">
+                    <img src="images/hero/hero-bg-1.jpg" alt="" width="1600" height="900" decoding="async">
+                </picture>
+                <picture class="hero-slide">
+                    <source media="(max-width: 47.99rem)" srcset="images/hero/hero-bg-2-m.webp" type="image/webp">
+                    <source media="(max-width: 47.99rem)" srcset="images/hero/hero-bg-2-m.jpg" type="image/jpeg">
+                    <source srcset="images/hero/hero-bg-2.webp" type="image/webp">
+                    <img src="images/hero/hero-bg-2.jpg" alt="" width="1600" height="900" decoding="async">
+                </picture>
+                <picture class="hero-slide">
+                    <source media="(max-width: 47.99rem)" srcset="images/hero/hero-bg-3-m.webp" type="image/webp">
+                    <source media="(max-width: 47.99rem)" srcset="images/hero/hero-bg-3-m.jpg" type="image/jpeg">
+                    <source srcset="images/hero/hero-bg-3.webp" type="image/webp">
+                    <img src="images/hero/hero-bg-3.jpg" alt="" width="1600" height="900" decoding="async">
+                </picture>
             </div>
 
             <div class="container hero-grid">
@@ -1319,5 +1340,71 @@
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a class="footer-logo" href="#top" aria-label="Temani Adams Law, back to top">
+                    <picture>
+                        <source srcset="images/brand/tma-logo-light.webp" type="image/webp">
+                        <img src="images/brand/tma-logo-light.png" alt="" width="378" height="360" loading="lazy" decoding="async">
+                    </picture>
+                </a>
+                <p class="footer-blurb">Temani M. Adams fights for those facing life-altering legal challenges. Every client is seen, heard, and fiercely defended.</p>
+                <ul class="footer-social">
+                                <li><a class="footer-social-link" href="https://www.facebook.com/1488894274707183" target="_blank" rel="noopener" aria-label="Facebook (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8.5V6.8c0-.8.5-1.3 1.3-1.3H17V2.5h-2.6C11.9 2.5 10.5 4 10.5 6.4v2.1H8v3h2.5v10h3.5v-10h2.6l.4-3Z"/></svg></a></li>
+                                <li><a class="footer-social-link" href="https://www.instagram.com/temaniadams/" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.5 2.5h9a5 5 0 0 1 5 5v9a5 5 0 0 1-5 5h-9a5 5 0 0 1-5-5v-9a5 5 0 0 1 5-5Z M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z M17.5 6.5h.01"/></svg></a></li>
+                                <li><a class="footer-social-link" href="https://www.youtube.com/channel/UCDLbi6QADPLTb2MqkCNQXXQ" target="_blank" rel="noopener" aria-label="YouTube (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8Z M10 15V9l5.2 3Z"/></svg></a></li>
+                                <li><a class="footer-social-link" href="https://www.tiktok.com/@temaniadams" target="_blank" rel="noopener" aria-label="TikTok (opens in a new tab)"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16 3c.4 2.3 1.9 3.8 4 4v3.2a7.4 7.4 0 0 1-4-1.2v6.3A5.8 5.8 0 1 1 10.2 9.5v3.3a2.6 2.6 0 1 0 2.6 2.6V3Z"/></svg></a></li>
+                </ul>
+            </div>
+
+            <nav class="footer-col" aria-labelledby="footer-practice">
+                <h2 class="footer-heading" id="footer-practice">Practice Areas</h2>
+                <ul class="footer-links">
+                    <li><a href="html/federal-drug-charges.html">Federal Drug Charges</a></li>
+                    <li><a href="html/supervised-release-violations.html">Supervised Release Violations</a></li>
+                    <li><a href="html/federal-gun-charges.html">Federal Gun Charges</a></li>
+                    <li><a href="html/early-discharge.html">Early Discharge</a></li>
+                    <li><a href="#wrongful-death">Wrongful Death</a></li>
+                </ul>
+            </nav>
+
+            <nav class="footer-col" aria-labelledby="footer-quick">
+                <h2 class="footer-heading" id="footer-quick">Quick Links</h2>
+                <ul class="footer-links">
+                    <li><a href="#about">About Temani</a></li>
+                    <li><a href="#results">Case Results</a></li>
+                    <li><a href="#reviews">Client Reviews</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h2 class="footer-heading">Get in Touch</h2>
+                <ul class="footer-contact">
+                    <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><a href="tel:+14692880888">469-288-0888</a></li>
+                    <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18v12H3Z M3 7l9 6 9-6"/></svg><a href="mailto:Info@TemaniAdamsLaw.com">Info@TemaniAdamsLaw.com</a></li>
+                    <li><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z M12 6.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><a href="https://www.google.com/maps?cid=16001391461290399537" target="_blank" rel="noopener">2211 N. Lamar Street, Suite 230<br>Dallas, TX 75202<span class="visually-hidden"> (opens Google Maps in a new tab)</span></a></li>
+                </ul>
+                <p class="footer-pay-label">Current clients</p>
+                <a class="button button-ghost footer-pay" href="https://secure.lawpay.com/pages/law-office-of-temani-adams/trust" target="_blank" rel="noopener">
+                    <svg class="button-lead" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 6h18v12H3Z M3 10h18 M7 15h4"/></svg>
+                    Make a Payment
+                    <span class="visually-hidden"> (opens LawPay in a new tab)</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Temani Adams PLLC. All rights reserved.</p>
+            <p>The information on this website is general information, not legal advice.</p>
+            <a class="footer-top" href="#top">
+                Back to top
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </a>
+        </div>
+    </footer>
 </body>
 </html>
