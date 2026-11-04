@@ -988,6 +988,41 @@ button {
     background: var(--ink-900);
 }
 
+/* ---------- Scroll reveal ----------
+   Anything with .reveal starts hidden and fades up slowly when it
+   scrolls into view (global.js adds .is-visible). The .js class means
+   content still shows if scripts don't run. reveal-d1 to d4 stagger
+   items that come in as a group. */
+.js .reveal {
+    opacity: 0;
+    transform: translate3d(0, 2.5rem, 0);
+}
+
+/* Transitions switch on a frame after the hidden state is applied, so
+   nothing visibly fades out while the page loads */
+.reveal-ready .reveal {
+    transition:
+        opacity 1.6s var(--ease-out),
+        transform 1.6s var(--ease-out),
+        border-color 0.3s,
+        background-color 0.3s;
+}
+
+/* Underlines wait for their heading to fade in before drawing */
+.js .reveal .text-underline::after {
+    transition-delay: 1.2s;
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+.reveal-ready .reveal-d1 { transition-delay: 0.2s; }
+.reveal-ready .reveal-d2 { transition-delay: 0.4s; }
+.reveal-ready .reveal-d3 { transition-delay: 0.6s; }
+.reveal-ready .reveal-d4 { transition-delay: 0.8s; }
+
 /* ---------- Back-to-top button ---------- */
 .to-top {
     position: fixed;

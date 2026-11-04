@@ -205,3 +205,36 @@
         observer.observe(mark);
     });
 })();
+
+/* ---------- Scroll reveal ----------
+   Fades each .reveal element in the first time it scrolls into view. */
+(function () {
+    "use strict";
+
+    var items = document.querySelectorAll(".reveal");
+
+    if (!items.length || !("IntersectionObserver" in window)) {
+        return;
+    }
+
+    document.documentElement.classList.add("js");
+
+    requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+            document.documentElement.classList.add("reveal-ready");
+        });
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: "0px 0px -4% 0px" });
+
+    items.forEach(function (item) {
+        observer.observe(item);
+    });
+})();
