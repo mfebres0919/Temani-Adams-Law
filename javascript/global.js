@@ -112,8 +112,15 @@
     });
 
     // Darker, more solid header once the page scrolls
+    // The back-to-top button shows once the hero is behind you
+    var toTop = document.getElementById("to-top");
+
     function updateScrolled() {
         header.classList.toggle("is-scrolled", window.scrollY > 8);
+
+        if (toTop) {
+            toTop.classList.toggle("is-visible", window.scrollY > 600);
+        }
     }
 
     updateScrolled();
