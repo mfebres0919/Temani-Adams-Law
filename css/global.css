@@ -950,6 +950,42 @@ button {
     }
 }
 
+/* ---------- Solid pink header buttons ----------
+   Phone and menu buttons are filled pink with white icons, on the dark
+   header and the white scrolled one alike. The deeper pink keeps the
+   white icons readable. */
+.header-phone-icon,
+.menu-toggle {
+    border-color: var(--pink-700);
+    background: var(--pink-700);
+}
+
+.header-phone-icon svg {
+    stroke: var(--white);
+}
+
+.menu-toggle-bar {
+    background: var(--white);
+}
+
+.header-phone:hover .header-phone-icon,
+.header-phone:focus-visible .header-phone-icon,
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    border-color: var(--pink-500);
+    background: var(--pink-500);
+}
+
+.header-phone:hover .header-phone-icon svg,
+.header-phone:focus-visible .header-phone-icon svg {
+    stroke: var(--ink-900);
+}
+
+.menu-toggle:hover .menu-toggle-bar,
+.menu-toggle:focus-visible .menu-toggle-bar {
+    background: var(--ink-900);
+}
+
 /* ---------- Back-to-top button ---------- */
 .to-top {
     position: fixed;
@@ -1039,18 +1075,6 @@ button {
     color: var(--pink-700);
 }
 
-.site-header.is-scrolled:not(.menu-open) .header-phone-icon,
-.site-header.is-scrolled:not(.menu-open) .menu-toggle {
-    border-color: #E5DADF;
-}
-
-.site-header.is-scrolled:not(.menu-open) .header-phone-icon svg {
-    stroke: var(--pink-700);
-}
-
-.site-header.is-scrolled:not(.menu-open) .menu-toggle-bar {
-    background: var(--ink-900);
-}
 
 .header-phone,
 .header-phone-text small,
